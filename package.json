@@ -1,0 +1,15 @@
+{
+  "name": "moon-phase-api-zuplo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@zuplo/runtime": "^4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
