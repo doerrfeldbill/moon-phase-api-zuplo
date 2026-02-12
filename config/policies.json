@@ -1,0 +1,31 @@
+[
+  {
+    "name": "api-key-auth",
+    "policyType": "api-key-inbound",
+    "handler": {
+      "export": "ApiKeyInboundPolicy",
+      "module": "$import(@zuplo/runtime)",
+      "options": {
+        "allowUnauthenticatedRequests": false,
+        "cacheTtlSeconds": 60,
+        "authHeader": "Authorization",
+        "authScheme": "Bearer"
+      }
+    }
+  },
+  {
+    "name": "rate-limit-per-user",
+    "policyType": "rate-limit-inbound",
+    "handler": {
+      "export": "RateLimitInboundPolicy",
+      "module": "$import(@zuplo/runtime)",
+      "options": {
+        "rateLimitBy": "user",
+        "requestsAllowed": 60,
+        "timeWindowMinutes": 1,
+        "headerMode": "retry-after",
+        "mode": "strict"
+      }
+    }
+  }
+]
